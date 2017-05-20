@@ -1,7 +1,7 @@
 /* Styles for dialog window */
 #small-dialog,#small-dialog1{
 	background:#fff;
-	padding: 2em;
+	padding: 2em 4em 2em 4em;
 	text-align: left;
 	max-width: 500px;
 	margin: 40px auto;
@@ -17,14 +17,15 @@
 	position: relative;
 	text-align:center;
 }
-a.play-icon.popup-with-zoom-anim img:hover {
-	opacity: 0.5;
-	transition:0.5s all;
-	-webkit-transition:0.5s all;
-	-o-transition:0.5s all;
-	-moz-transition:0.5s all;
-	-ms-transition:0.5s all;
-}
+
+/*a.play-icon.popup-with-zoom-anim img:hover {*/
+	/*opacity: 0.5;*/
+	/*transition:0.5s all;*/
+	/*-webkit-transition:0.5s all;*/
+	/*-o-transition:0.5s all;*/
+	/*-moz-transition:0.5s all;*/
+	/*-ms-transition:0.5s all;*/
+/*}*/
 .portfolio-items{
 	text-align:center;
 	margin:0 auto;

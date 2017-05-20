@@ -110,7 +110,7 @@ input[type="submit"],input[type="reset"],.w3layouts_mail_grid_left1,.w3layouts_m
     margin-left: 0em;
 }
 .navbar-nav {
-	margin:0 0 0 7em;
+	margin:0 0 0 18em;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     color:#1bd6f2;
@@ -624,14 +624,16 @@ p.augue_agile:after{
 }
 .agileits_w3layouts_user input[type="text"],.agileits_w3layouts_user input[type="email"], .agileits_w3layouts_user input[type="password"]{
     outline: none;
-    padding: 10px 10px 10px 60px;
+    padding: 10px 10px 10px 0px;
     font-size: 14px;
     color: #212121;
-    border: 1px solid #999;
+    border:transparent;
+    border-bottom: 1px solid #999;
     width:100%;
 }
 .agileits_w3layouts_user:nth-child(2),.agileits_w3layouts_user_agileits{
 	margin:1em 0;
+
 }
 .agile_remember_left {
     float: left;
@@ -1051,7 +1053,7 @@ p.augue_agile:after{
     font-size: 14px;
     text-transform: uppercase;
     border: none;
-    margin:.5em 0 0 6.9em;
+    float:right;
 }
 .agileits_mail_grid_right1 input[type="submit"]:hover{
     background:#212121;
