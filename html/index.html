@@ -47,7 +47,7 @@
 							<li class="active"><a href="index.html">Home</a></li>
 							<li><a href="services.html">Services</a></li>
 							<li><a href="portfolio.html">News</a></li>
-							<li><a href="mail.html">Contact Us</a></li>
+							<li><a href="contact.html">Contact Us</a></li>
 						</ul>
 						<div class="w3_agile_login">
 							<a href="#small-dialog" class="play-icon popup-with-zoom-anim"><i class="fa fa-user" aria-hidden="true"></i></a>
@@ -69,15 +69,16 @@
 <!-- //banner -->	
 
 <!-- pop-up-box -->
+	<!--登录-->
 	<div id="small-dialog" class="mfp-hide w3ls_small_dialog wthree_pop">
 		<h3>Sign In</h3>		
 		<div class="agileits_modal_body">
-			<form action="#" method="post">
+			<form action="#" method="post" onsubmit="return signIn()">
 				<div class="agileits_w3layouts_user" >
-					<input type="text" name="Name" placeholder="User Name" required="">
+					<input type="email" id="myEmail" placeholder="Email" required="required" >
 				</div>
 				<div class="agileits_w3layouts_user" >
-					<input type="password" name="Password" placeholder="Password" required="">
+					<input type="password" id="myPassword" placeholder="Password" required="required" onblur="passwordLength()" maxlength="18" minlength="9">
 				</div>
 				<div class="agile_remember">
 					<div class="agile_remember_left">
@@ -90,38 +91,58 @@
 					</div>
 					<div class="clearfix"> </div>
 				</div>
-				<input type="submit" value="Sign In">
+				<input type="submit" value="Sign In" onclick="">
 			</form>
 			<h5>Don't have an account? <a href="#small-dialog1" class="play-icon popup-with-zoom-anim">Sign Up</a></h5>
 		</div>
 	</div>
+
+	<!--注册-->
 	<div id="small-dialog1" class="mfp-hide w3ls_small_dialog wthree_pop">
 		<h3>Sign Up</h3>		
 		<div class="agileits_modal_body">
 			<form action="#" method="post">
 				<div class="agileits_w3layouts_user">
-					<input type="text" name="Name" placeholder="Username" required="">
+					<input type="text" name="Name" placeholder="Username" required="required" minlength="3" maxlength="8" onkeyup="value=value.replace(/[\W]/g,'')">
 				</div>
 				<div class="agileits_w3layouts_user">
-					<input type="email" name="Email" placeholder="Email" required="">
+					<input type="email" name="Email" placeholder="Email" required="required">
 				</div>
 				<div class="agileits_w3layouts_user agileits_w3layouts_user_agileits">
-					<input type="password" name="Password" placeholder="Password" required="">
+					<input type="password" name="Password" id="pw1" placeholder="Password" required="required" minlength="9" maxlength="18">
 				</div>
 				<div class="agileits_w3layouts_user">
-					<input type="password" name="Password" placeholder="Confirm Password" required="">
+					<input type="password" name="Password" id="pw2" placeholder="Confirm Password" required="required" minlength="9" maxlength="18" onblur="check()">
 				</div>
+				<p id="hint" style="font-size: 12px; color:#999; text-align: left;margin-top:15px;"></p>
 				<div class="agileinfo_subscribe">
 					<div class="check">
-						<label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>i accept the terms and conditions</label>
+						<label class="checkbox"><input type="checkbox" name="checkbox" id="checkbox" checked="checked"><i> </i>I accept the terms and conditions</label>
 					</div>
 				</div>
-				<input type="submit" value="Register">
+				<input type="submit" value="Register" id="signUp" >
 			</form>
 			<h5>Already a member <a href="#small-dialog" class="play-icon popup-with-zoom-anim">Sign In</a></h5>
 		</div>
 	</div>
+
+	<script>
+		function check(){
+		    var password1=document.getElementById("pw1").value;
+            var password2=document.getElementById("pw2").value;
+
+            if(password1!=password2)
+			{
+                document.getElementById("hint").innerHTML="两次密码不一致，请重新输入";
+				pw1.value="";
+			    pw2.value="";
+			}
+			else
+                document.getElementById("hint").innerHTML="";
+		}
+	</script>
 <!-- //pop-up-box -->
+
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
 <script>
 	$(document).ready(function() {
@@ -311,7 +332,7 @@
 						<li class="active"><a href="index.html">Home</a></li>
 						<li><a href="services.html">Services</a></li>
 						<li><a href="portfolio.html">News</a></li>
-						<li><a href="mail.html">Contact Us</a></li>
+						<li><a href="contact.html">Contact Us</a></li>
 					</ul>
 				</div>
 				<div class="agileits_w3layouts_nav_right">
@@ -362,3 +383,4 @@
 <!-- //here ends scrolling icon -->
 </body>
 </html>
+
