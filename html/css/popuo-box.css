@@ -8,6 +8,15 @@
 	position: relative;
 	text-align:center;
 }
+#deal,#exit{
+	background:#fff;
+	padding: 2em 3em 3em 3em;
+	text-align: left;
+	max-width: 500px;
+	margin: 40px auto;
+	position: relative;
+	text-align:center;
+}
 #small-dialog-it,#small-dialog-in,#small-dialog-fr,#small-dialog-sh,#small-dialog-sf,#small-dialog-su,#small-dialog-me,#small-dialog-ch,#small-dialog-pi,#small-dialog-am {
 	background: white;
 	padding:0px;
@@ -361,3 +370,8 @@ button::-moz-focus-inner {
 		top:-30px;
 	}
 } 
+
+
+.save input[type="submit"]:hover{
+	background: #1bd6f2;
+}

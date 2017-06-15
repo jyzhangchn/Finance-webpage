@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Robo-advisor a Corporate Business Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+	<!-- for-mobile-apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--<meta name="keywords" content="Monetary Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, -->
+	<!--Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />-->
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+    function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- //for-mobile-apps -->
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- js -->
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+
+	<!--css-->
+	<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" property="" />
+	<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/font-awesome.min.css" />
+	<!-- //font-awesome icons -->
+	<link href="//fonts.googleapis.com/css?family=Varela+Round&subset=hebrew" rel="stylesheet">
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+<!-- banner -->
+<div class="banner1">
+	<div class="container">
+		<nav class="navbar navbar-default">
+			<div class="navbar-header navbar-left">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<h1><a class="navbar-brand" href="index.html">Robo-advisor</a></h1>
+			</div>
+			<div style="color:#cfcfcf;float:right;font-size:12px;margin-top:-15px;">
+				<a href="setting.html" style="color: white">个人中心</a>
+			</div>
+			<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+				<nav class="cl-effect-13" id="cl-effect-13">
+					<ul class="nav navbar-nav">
+						<li><a href="index.html">Home</a></li>
+						<li class="active"><a href="stocks.html">Stocks</a></li>
+						<li><a href="news.html">News</a></li>
+						<li><a href="contact.html">Contact Us</a></li>
+					</ul>
+					<div class="w3_agile_login">
+						<a href="#small-dialog" class="play-icon popup-with-zoom-anim"><i class="fa fa-user" aria-hidden="true"></i></a>
+					</div>
+				</nav>
+			</div>
+		</nav>
+	</div>
+</div>
+<!-- //banner -->
+
+<!-- pop-up-box -->
+<!--登录-->
+<div id="small-dialog" class="mfp-hide w3ls_small_dialog wthree_pop">
+	<h3>Sign In</h3>
+	<div class="agileits_modal_body">
+		<form action="#" method="post" onsubmit="return signIn()">
+			<div class="agileits_w3layouts_user" >
+				<input type="email" id="myEmail" placeholder="Email" required="required" >
+			</div>
+			<div class="agileits_w3layouts_user" >
+				<input type="password" id="myPassword" placeholder="Password" required="required" onblur="passwordLength()" maxlength="18" minlength="9">
+			</div>
+			<div class="agile_remember">
+				<div class="agile_remember_left">
+					<div class="check">
+						<label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>remember me</label>
+					</div>
+				</div>
+				<div class="agile_remember_right">
+					<a href="#">Forgot Password?</a>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<input type="submit" value="Sign In" onclick="">
+		</form>
+		<h5>Don't have an account? <a href="#small-dialog1" class="play-icon popup-with-zoom-anim">Sign Up</a></h5>
+	</div>
+</div>
+
+<!--注册-->
+<div id="small-dialog1" class="mfp-hide w3ls_small_dialog wthree_pop">
+	<h3>Sign Up</h3>
+	<div class="agileits_modal_body">
+		<form action="#" method="post">
+			<div class="agileits_w3layouts_user">
+				<input type="text" name="Name" placeholder="Username" required="required" minlength="3" maxlength="8" onkeyup="value=value.replace(/[\W]/g,'')">
+			</div>
+			<div class="agileits_w3layouts_user">
+				<input type="email" name="Email" placeholder="Email" required="required">
+			</div>
+			<div class="agileits_w3layouts_user agileits_w3layouts_user_agileits">
+				<input type="password" name="Password" id="pw1" placeholder="Password" required="required" minlength="9" maxlength="18">
+			</div>
+			<div class="agileits_w3layouts_user">
+				<input type="password" name="Password" id="pw2" placeholder="Confirm Password" required="required" minlength="9" maxlength="18" onblur="check()">
+			</div>
+			<p id="hint" style="font-size: 12px; color:#999; text-align: left;margin-top:15px;"></p>
+			<div class="agileinfo_subscribe">
+				<div class="check">
+					<label class="checkbox"><input type="checkbox" name="checkbox" id="checkbox" checked="checked"><i> </i>I accept the terms and conditions</label>
+				</div>
+			</div>
+			<input type="submit" value="Register" id="signUp" >
+		</form>
+		<h5>Already a member <a href="#small-dialog" class="play-icon popup-with-zoom-anim">Sign In</a></h5>
+	</div>
+</div>
+
+<script>
+    function check(){
+        var password1=document.getElementById("pw1").value;
+        var password2=document.getElementById("pw2").value;
+
+        if(password1!=password2)
+        {
+            document.getElementById("hint").innerHTML="两次密码不一致，请重新输入";
+            pw1.value="";
+            pw2.value="";
+        }
+        else
+            document.getElementById("hint").innerHTML="";
+    }
+</script>
+<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+            fixedContentPos: false,
+            fixedBgPos: true,
+            overflowY: 'auto',
+            closeBtnInside: true,
+            preloader: false,
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+    });
+</script>
+<!-- //pop-up-box -->
+
+
+<!--breadcrumbs-->
+<div class="container" >
+	<ol class="breadcrumb" style="background:transparent;">
+		<li><a href="index.html">Home</a></li>
+		<li class="active">Stocks</li>
+	</ol>
+</div>
+<!--breadcrumbs-->
+
+<!-- typography -->
+	<div class="typo" id="stocks">
+		<div class="container">
+			<h3 class="w3_agile_head">Stocks</h3>
+			<p class="augue_agile">一手掌握各种股票信息</p>
+
+			<!--search-->
+			<div class="row">
+				<div class="col-lg-4 col-lg-offset-4 in-gp-tb">
+					<div class="input-group" style="padding-top:20px;">
+						<input type="text" class="form-control" placeholder="输入股票名称、代码...">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button">查询</button>
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="bs-docs-example">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th></th>
+							<th>收藏</th>
+							<th>股票名称</th>
+							<th>交易代码</th>
+							<th>上市板块</th>
+							<th>上市日期</th>
+							<th></th>
+
+						</tr>
+					</thead>
+					<tbody>      <!--点击不同的股票跳转到相应的页面-->
+						<tr>
+							<td>1</td>  <!--写一个判断看是否在收藏夹中，若在，将class置为"glyphicon glyphicon-heart"，若不在，置为"glyphicon-heart-empty"-->
+							<td class="glyphicon glyphicon-heart-empty" name="like" onclick="like()" style="cursor: pointer"></td>
+							<td class="row-click-able" data-href="services.html" style="cursor: pointer"><link href="services.html">Mark</td>
+							<td class="row-click-able" data-href="services.html" style="cursor: pointer">Otto</td>
+							<td class="row-click-able" data-href="services.html" style="cursor: pointer">@mdo</td>
+							<td class="row-click-able" data-href="services.html" style="cursor: pointer">@mdo</td>
+							<td><a href="#deal" class="play-icon popup-with-zoom-anim">交易</a></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td class="glyphicon glyphicon-heart"  name="like" onclick="like()" style="cursor: pointer"></td>
+							<td class="row-click-able" data-href="services.html" style="cursor: pointer">Jacob</td>
+							<td class="row-click-able" data-href="services.html" style="cursor: pointer">Thornton</td>
+							<td class="row-click-able" data-href="services.html" style="cursor: pointer">@fat</td>
+							<td class="row-click-able" data-href="services.html" style="cursor: pointer">@mdo</td>
+							<td><a href="#deal" class="play-icon popup-with-zoom-anim">交易</a></td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td class="glyphicon glyphicon-heart-empty" name="like" onclick="like()" style="cursor: pointer"></td>
+							<td class="row-click-able" data-href="services.html" style="cursor: pointer">Larry</td>
+							<td class="row-click-able" data-href="services.html" style="cursor: pointer">the Bird</td>
+							<td class="row-click-able" data-href="services.html" style="cursor: pointer">@twitter</td>
+							<td class="row-click-able" data-href="services.html" style="cursor: pointer">@mdo</td>
+							<td><a href="#deal" class="play-icon popup-with-zoom-anim">交易</a></td>
+						</tr>
+					</tbody>
+					<script>
+                        $(document).ready(function($) {
+                            $(".row-click-able").click(function() {
+                                window.document.location = $(this).data("href");
+                            });
+                        });
+					</script>
+				</table>
+			</div>
+		</div>
+	</div>
+<script>
+	function  like() {
+        document.body.addEventListener('click',function(e){
+            var event = window.event ? window.event : e;
+            var target = event.target || event.srcElement;
+            if(target.className === "glyphicon glyphicon-heart-empty"){
+                target.className = "glyphicon glyphicon-heart";
+            }
+            else if(target.className === "glyphicon glyphicon-heart"){
+                target.className = "glyphicon glyphicon-heart-empty";
+            }
+        });
+    }
+</script>
+
+
+<!--交易-->
+	<div id="deal" class="mfp-hide w3ls_small_dialog wthree_pop">
+		<p class="augue_agile" style="color:#54b1e9;font-size: 36px;margin-bottom: 10px"> XX股票 </p>    <!--传股票名称-->
+		<div class="agileits_modal_body">
+			<form action="#" method="post" style="margin:10px;padding:0 auto;text-align: left;">
+				<div style="margin:0 0 10px 40px;">
+					<a style="color:#4c4c4c;">当前余额：</a>
+					<span  id="money" style="margin: 10px 0">100000</span>
+					<a style="color: #b9b9b9;">RMB</a><br>
+				</div>
+				<div  style="margin:0 0 10px 40px;">
+					<a style="color:#4c4c4c;">股票价格：</a>
+					<span id="stock_price" style="margin: 10px 0">2973.56</span><br>
+				</div>
+				<div  style="margin:0 0 10px 40px;">
+					<a style="color:#4c4c4c;">交易股数：</a>
+					<input  id="num" type="text" placeholder="0"  onkeyup="calculate();value=value.replace(/[^\d]/g,'')" ><br>
+				</div>
+				<div style="margin:0 0 10px 40px;">
+					<a style="color:#4c4c4c;">总交易金额：</a>
+					<label id="sum">0</label><a style="color: #b9b9b9;"> RMB</a><br>
+				</div>
+				<div style="margin:0 0 10px 40px;">
+					<a style="color:#4c4c4c;">买入后余额：</a>
+					<label id="buy_left">0</label><a style="color: #b9b9b9;"> RMB</a><br>
+				</div>
+				<div style="margin:0 0 10px 40px;">
+					<a style="color:#4c4c4c;">卖出后余额：</a>
+					<label id="sell_left">0</label><a style="color: #b9b9b9;"> RMB</a><br>
+				</div>
+				<div style="text-align: center;margin-top: 20px;">
+					<input type="submit" value="买入" id="buy" href="stocks.html">
+					<input type="submit" value="卖出" id="sell" href="stock.html">
+				</div>
+			</form>
+		</div>
+	</div>
+
+<script>
+	function calculate()
+	{
+	    var num = document.getElementById("num").value;
+	    var price = document.getElementById("stock_price").innerText;
+        var money = document.getElementById("money").innerText;
+        var sum = num*price;
+	    var buy_left = money-sum;
+	    var sell_left = money*1+1*sum;
+	    document.getElementById("sum").innerText=sum;
+        document.getElementById("buy_left").innerText=buy_left;
+        document.getElementById("sell_left").innerText=sell_left;
+    }
+</script>
+
+
+<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<h2><a href="index.html">Robo-advisor</a></h2>
+			<h3>(+000) 123 456 789</h3>
+			<form action="#" method="post">
+				<input type="email" name="email" placeholder="Your email..." required="">
+				<input type="submit" value="Subscribe">
+			</form>
+			<div class="agileits_w3layouts_nav">
+				<div class="agileits_w3layouts_nav_left">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="services.html">Stocks</a></li>
+						<li><a href="news.html">Portfolio</a></li>
+						<li><a href="mail.html">Mail Us</a></li>
+					</ul>
+				</div>
+				<div class="agileits_w3layouts_nav_right">
+					<ul>
+						<li><a href="#" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="agile_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="w3_agile_dribble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="w3_agile_vimeo"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<p>© 2017 Monetary. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+		</div>
+	</div>
+<!-- //footer -->
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+<!-- start-smooth-scrolling -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smooth-scrolling -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>News</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Monetary Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+<link type="text/css" rel="stylesheet" href="css/cm-overlay.css" />
+<!-- font-awesome icons -->
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<!-- //font-awesome icons -->
+<link href="//fonts.googleapis.com/css?family=Varela+Round&subset=hebrew" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+
+</head>
+	
+<body>
+<!-- banner -->
+<div class="banner1">
+	<div class="container">
+		<nav class="navbar navbar-default">
+			<div class="navbar-header navbar-left">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<h1><a class="navbar-brand" href="index.html">Robo-advisor</a></h1>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+				<nav class="cl-effect-13" id="cl-effect-13">
+					<ul class="nav navbar-nav">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="stocks.html">Stocks</a></li>
+						<li class="active"><a href="news.html">News</a></li>
+						<li><a href="contact.html">Contact Us</a></li>
+					</ul>
+					<div class="w3_agile_login">
+						<a href="#small-dialog" class="play-icon popup-with-zoom-anim"><i class="fa fa-user" aria-hidden="true"></i></a>
+					</div>
+				</nav>
+			</div>
+		</nav>
+	</div>
+</div>
+<!-- //banner -->
+
+<!--breadcrumbs-->
+	<div class="container" >
+		<ol class="breadcrumb" style="background:transparent;">
+			<li><a href="#">Home</a></li>
+			<li class="active">News</li>
+		</ol>
+	</div>
+<!--breadcrumbs-->
+	
+<!-- pop-up-box -->
+<!--登录-->
+<div id="small-dialog" class="mfp-hide w3ls_small_dialog wthree_pop">
+	<h3>Sign In</h3>
+	<div class="agileits_modal_body">
+		<form action="#" method="post" onsubmit="return signIn()">
+			<div class="agileits_w3layouts_user" >
+				<input type="email" id="myEmail" placeholder="Email" required="required" >
+			</div>
+			<div class="agileits_w3layouts_user" >
+				<input type="password" id="myPassword" placeholder="Password" required="required" onblur="passwordLength()" maxlength="18" minlength="9">
+			</div>
+			<div class="agile_remember">
+				<div class="agile_remember_left">
+					<div class="check">
+						<label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>remember me</label>
+					</div>
+				</div>
+				<div class="agile_remember_right">
+					<a href="#">Forgot Password?</a>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<input type="submit" value="Sign In" onclick="">
+		</form>
+		<h5>Don't have an account? <a href="#small-dialog1" class="play-icon popup-with-zoom-anim">Sign Up</a></h5>
+	</div>
+</div>
+
+<!--注册-->
+	<div id="small-dialog1" class="mfp-hide w3ls_small_dialog wthree_pop">
+		<h3>Sign Up</h3>
+		<div class="agileits_modal_body">
+			<form action="#" method="post">
+				<div class="agileits_w3layouts_user">
+					<input type="text" name="Name" placeholder="Username" required="required" minlength="3" maxlength="8" onkeyup="value=value.replace(/[\W]/g,'')">
+				</div>
+				<div class="agileits_w3layouts_user">
+					<input type="email" name="Email" placeholder="Email" required="required">
+				</div>
+				<div class="agileits_w3layouts_user agileits_w3layouts_user_agileits">
+					<input type="password" name="Password" id="pw1" placeholder="Password" required="required" minlength="9" maxlength="18">
+				</div>
+				<div class="agileits_w3layouts_user">
+					<input type="password" name="Password" id="pw2" placeholder="Confirm Password" required="required" minlength="9" maxlength="18" onblur="check()">
+				</div>
+				<p id="hint" style="font-size: 12px; color:#999; text-align: left;margin-top:15px;"></p>
+				<div class="agileinfo_subscribe">
+					<div class="check">
+						<label class="checkbox"><input type="checkbox" name="checkbox" id="checkbox" checked="checked"><i> </i>I accept the terms and conditions</label>
+					</div>
+				</div>
+				<input type="submit" value="Register" id="signUp" >
+			</form>
+			<h5>Already a member <a href="#small-dialog" class="play-icon popup-with-zoom-anim">Sign In</a></h5>
+		</div>
+	</div>
+
+	<script>
+		function check(){
+			var password1=document.getElementById("pw1").value;
+			var password2=document.getElementById("pw2").value;
+
+			if(password1!=password2)
+			{
+				document.getElementById("hint").innerHTML="两次密码不一致，请重新输入";
+				pw1.value="";
+				pw2.value="";
+			}
+			else
+				document.getElementById("hint").innerHTML="";
+		}
+	</script>
+<!-- //pop-up-box -->
+<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script>
+	$(document).ready(function() {
+	$('.popup-with-zoom-anim').magnificPopup({
+		type: 'inline',
+		fixedContentPos: false,
+		fixedBgPos: true,
+		overflowY: 'auto',
+		closeBtnInside: true,
+		preloader: false,
+		midClick: true,
+		removalDelay: 300,
+		mainClass: 'my-mfp-zoom-in'
+	});
+																	
+	});
+</script>
+
+
+<!--services-->
+<div class="services">
+	<div class="container">
+		<h3 class="w3_agile_head">Financial Facts</h3>
+		<p class="augue_agile">30s秒懂金融小知识，从此告别金融小白</p>
+
+		<div class="w3layouts_services_grids">
+			<div class="col-md-4 w3layouts_services_grid">
+				<div class="w3layouts_services_grid_main">
+					<div class="w3layouts_services_grid1">
+						<img src="images/7.jpg" alt=" " class="img-responsive" />
+					</div>
+					<h5>证券投资基金</h5>
+					<p>证券投资基金是一种间接的证券投资方式。基金管理公司通过发行基金单位，集中投资者的资金，
+						由基金托管人（即具有资格的银行）托管，由基金管理人管理和运用资金，从事股票、债券等金融工具投资，然后共担投资风险、分享收益。</p>
+				</div>
+			</div>
+			<div class="col-md-4 w3layouts_services_grid">
+				<div class="w3layouts_services_grid_main">
+					<div class="w3layouts_services_grid1">
+						<img src="images/8.jpg" alt=" " class="img-responsive" />
+					</div>
+					<h5>期货</h5>
+					<p>期货(Futures)是包含金融工具或未来交割实物商品销售的金融合约，是一种衍生性金融商品。按现货标的物之种类，期货可分为商品期货与金融期货两大类。参与期货交易者之中，
+						套保者(或称对冲者)透过买卖期货，锁定利润与成本，减低时间带来的价格波动风险。投机者则透过期货交易承担更多风险，伺机在价格波动中牟取利润。
+					</p>
+				</div>
+			</div>
+			<div class="col-md-4 w3layouts_services_grid">
+				<div class="w3layouts_services_grid_main">
+					<div class="w3layouts_services_grid1">
+						<img src="images/9.jpg" alt=" " class="img-responsive" />
+					</div>
+					<h5>一级市场</h5>
+					<p>证券发行市场发行证券，是证券发行者为扩充经营，按照一定的法律规定和发行程序，向投资者出售新证券所形成的市场，又称一级市场、初级市场。</p>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+
+		<div class="w3layouts_services_grids1">
+			<div class="col-md-4 w3layouts_services_grid">
+				<div class="w3layouts_services_grid_main">
+					<div class="w3layouts_services_grid1">
+						<img src="images/10.jpg" alt=" " class="img-responsive" />
+
+					</div>
+					<h5>二级市场</h5>
+					<p>证券交易市场也称证券流通市场、二级市场（security secondary market）、次级市场，是指对已经发行的证券进行买卖，
+						转让和流通的市场。在二级市场上销售证券的收入属于出售证券的投资者，而不属于发行该证券的公司。 各国的股票市场一般都是二级市场。
+						与美国等西方国家比较，抵押贷款、人寿保险等金融产品的二级市场在中国基本上还没有形成。</p>
+				</div>
+			</div>
+			<div class="col-md-4 w3layouts_services_grid">
+				<div class="w3layouts_services_grid_main">
+					<div class="w3layouts_services_grid1">
+						<img src="images/11.jpg" alt=" " class="img-responsive" />
+					</div>
+					<h5>金融衍生品</h5>
+					<p>金融衍生产品是指其价值依赖于标的资产（Underlying Asset）价值变动的合约。这种合约可以是标准化的或非标准化的。
+						标准化合约是指其标的资产（基础资产）的交易价格、交易时间、资产特征、交易方式等都是事先标准化的，因此此类合约大多在交易所上市交易，如期货。
+						非标准化合约是指以上各项由交易的双方自行约定，因此具有很强的灵活性，比如远期合约。</p>
+				</div>
+			</div>
+			<div class="col-md-4 w3layouts_services_grid">
+				<div class="w3layouts_services_grid_main">
+					<div class="w3layouts_services_grid1">
+						<img src="images/12.jpg" alt=" " class="img-responsive" />
+					</div>
+					<h5>创业板上市公司</h5>
+					<p>创业板上市公司是指经申请和批准，在各国家和地区创业板市场发行和流通的股票，并接受各国和地区创业板市场制度评价和约束的公司的总称。
+						创业板市场是地位次于主板市场的二板证券市场，以纳斯达克证券交易所（NASDAQ）市场为代表，在中国特指深圳创业板。
+						在上市门槛低于主板中小板，监管制度、信息披露、交易者条件、投资风险等方面和主板市场也有较大区别。</p>
+				</div>
+			</div>
+			<div class="col-md-4 w3layouts_services_grid">
+				<div class="w3layouts_services_grid_main">
+					<div class="w3layouts_services_grid1">
+						<img src="images/7.jpg" alt=" " class="img-responsive" />
+					</div>
+					<h5>国有资产证券化</h5>
+					<p>国有资产证券化是指把缺乏流动性的经营性国有资产变成能够在金融市场买卖的证券的行为。
+						国有资产证券化最理想的形式是把经营性国有资产变成上市公司的股票。国有资产证券化有利于国有资产在行业之间自由转移，
+						灵活调整国有资产结构或分布格局，有利于国有资产保值增值和融资，便于资产在国有单位与民间主体之间的流动。</p>
+				</div>
+			</div>
+			<div class="col-md-4 w3layouts_services_grid">
+				<div class="w3layouts_services_grid_main">
+					<div class="w3layouts_services_grid1">
+						<img src="images/9.jpg" alt=" " class="img-responsive" />
+					</div>
+					<h5>多变净额结算</h5>
+					<p>多边净额结算是指证券登记结算机构介入证券交易双方的交易关系中，成为“所有买方的卖方”和“所有卖方的买方”；
+						然后以结算参与人为单位，对其所有交易的应收应付证券和资金予以冲抵轧差，每个结算参与人根据轧差所得净额与证券登记结算机构进行交收的结算方式。</p>
+				</div>
+			</div>
+			<div class="col-md-4 w3layouts_services_grid">
+				<div class="w3layouts_services_grid_main">
+					<div class="w3layouts_services_grid1">
+						<img src="images/8.jpg" alt=" " class="img-responsive" />
+					</div>
+					<h5>金融资产证券化</h5>
+					<p>金融资产证券化是指，银行等金融机构或一般企业透过特殊目的机构(可分为公司型态或信托型态)之创设及其隔离风险之功能，
+						从其持有之各种资产如住宅贷款、信用卡应收帐款等，筛选出未来产生现金流量、信用品质易于预测、
+						具有标准特性(例如类似的期限、利率、债务人属性等)之资产作为基础或担保，经由信用增强及信用评等机制之搭配，将该等资产重新组群包装成为单位化、
+						小额化之证券型式，向投资人销售之过程。</p>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!--//services -->
+
+<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<h2><a href="index.html">Robo-Advisor</a></h2>
+			<h3>(+000) 123 456 789</h3>
+			<form action="#" method="post">
+				<input type="email" name="email" placeholder="Your email..." required="">
+				<input type="submit" value="Subscribe">
+			</form>
+			<div class="agileits_w3layouts_nav">
+				<div class="agileits_w3layouts_nav_left">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="stocks.html">Stocks</a></li>
+						<li class="active"><a href="news.html">News</a></li>
+						<li><a href="contact.html">Contact Us</a></li>
+					</ul>
+				</div>
+				<div class="agileits_w3layouts_nav_right">
+					<ul>
+						<li><a href="#" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="agile_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="w3_agile_dribble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="w3_agile_vimeo"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<p>Copyright © 2017.All rights reserved</p>
+		</div>
+	</div>
+<!-- //footer -->
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+<!-- start-smooth-scrolling -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smooth-scrolling -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>

@@ -9,24 +9,26 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
 <title>Monetary a Corporate Business Category Flat Bootstrap Responsive Website Template | Services :: w3layouts</title>
 <!-- for-mobile-apps -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Monetary Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-		function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Monetary Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+			function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //for-mobile-apps -->
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- js -->
-<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-<!-- //js -->
-<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/highstock.js"></script>
+
+	<!-- //js -->
+	<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
 <!-- font-awesome icons -->
-<link rel="stylesheet" href="css/font-awesome.min.css" />
+	<link rel="stylesheet" href="css/font-awesome.min.css" />
 <!-- //font-awesome icons -->
-<link href="//fonts.googleapis.com/css?family=Varela+Round&subset=hebrew" rel="stylesheet">
-<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+	<link href="//fonts.googleapis.com/css?family=Varela+Round&subset=hebrew" rel="stylesheet">
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <!--echarts-->
 	<script type="text/javascript" src="js/echarts.js"></script>
 </head>
@@ -50,8 +52,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<nav class="cl-effect-13" id="cl-effect-13">
 						<ul class="nav navbar-nav">
 							<li><a href="index.html">Home</a></li>
-							<li class="active"><a href="services.html">Services</a></li>
-							<li><a href="portfolio.html">News</a></li>
+							<li class="active"><a href="stocks.html">Stocks</a></li>
+							<li><a href="news.html">News</a></li>
 							<li><a href="contact.html">Contact Us</a></li>
 						</ul>
 						<div class="w3_agile_login">
@@ -157,7 +159,201 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 	</script>
 
-	<div id="chart" style="width: 800px;height:600px;margin:30px auto;"></div>
+<!--breadcrumbs-->
+	<div class="container" >
+		<ol class="breadcrumb" style="background:transparent;">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="stocks.html">Stocks</a></li>
+			<li class="active">股票详情</li>
+
+		</ol>
+	</div>
+<!--breadcrumbs-->
+	<div class="typo">
+		<div class="container">
+			<!--<h3 class="w3_agile_head">股票详情</h3>-->
+			<!--<p class="augue_agile">详细查看股票指数</p>-->
+			<h3 class="w3_agile_head">AAPL</h3>                 <!--最好动态吧股票代码和名称传过来-->
+			<p class="augue_agile">苹果公司 Apple.Inc</p>
+
+
+		</div>
+	</div>
+
+<!--highcharts-->
+<!--stock price-->
+	<div class="container" id="price" style="min-width:800px; height:600px;"></div>
+<script>
+    $(function () {
+        $.getJSON('https://data.jianshukeji.com/jsonp?filename=json/new-intraday.json&callback=?', function (data) {
+            // create the chart
+            $('#price').highcharts('StockChart', {
+                title: {
+                    text: '最近一周股价（By minute）'
+                },
+
+                xAxis: {
+                    gapGridLineWidth: 0
+                },
+                rangeSelector : {
+                    buttons : [{
+                        type : 'hour',
+                        count : 1,
+                        text : '1h'
+                    }, {
+                        type : 'day',
+                        count : 1,
+                        text : '1D'
+                    }, {
+                        type : 'all',
+                        count : 1,
+                        text : 'All'
+                    }],
+                    selected : 1,
+                    inputEnabled : false
+                },
+                series : [{
+                    name : 'AAPL',
+                    type: 'area',
+                    data : data,
+                    gapSize: 5,
+                    tooltip: {
+                        valueDecimals: 2
+                    },
+                    fillColor : {
+                        linearGradient : {
+                            x1: 0,
+                            y1: 0,
+                            x2: 0,
+                            y2: 1
+                        },
+                        stops : [
+                            [0, Highcharts.getOptions().colors[0]],
+                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                        ]
+                    },
+                    threshold: null
+                }]
+            });
+        });
+    });
+</script>
+
+
+<!--历史票价-->
+	<div class="container">
+		<div id="historyPrice" style="min-width:800px; height:600px;margin:120px 0; "></div>
+	</div>
+	<script>
+		$(function () {
+			Highcharts.setOptions({
+				lang: {
+					rangeSelectorZoom: ''
+				}
+			});
+			$.getJSON('https://data.jianshukeji.com/jsonp?filename=json/aapl-ohlcv.json&callback=?', function (data) {
+				var ohlc = [],
+					volume = [],
+					dataLength = data.length,
+					// set the allowed units for data grouping
+					groupingUnits = [[
+						'week',                         // unit name
+						[1]                             // allowed multiples
+					], [
+						'month',
+						[1, 2, 3, 4, 6]
+					]],
+					i = 0;
+				for (i; i < dataLength; i += 1) {
+					ohlc.push([
+						data[i][0], // the date
+						data[i][1], // open
+						data[i][2], // high
+						data[i][3], // low
+						data[i][4] // close
+					]);
+					volume.push([
+						data[i][0], // the date
+						data[i][5] // the volume
+					]);
+				}
+				// create the chart
+				$('#historyPrice').highcharts('StockChart', {
+					rangeSelector: {
+						selected: 1,
+						inputDateFormat: '%Y-%m-%d'
+					},
+					title: {
+						text: '历年K线图及成交量',
+					},
+					xAxis: {
+						dateTimeLabelFormats: {
+							millisecond: '%H:%M:%S.%L',
+							second: '%H:%M:%S',
+							minute: '%H:%M',
+							hour: '%H:%M',
+							day: '%m-%d',
+							week: '%m-%d',
+							month: '%y-%m',
+							year: '%Y'
+						}
+					},
+					yAxis: [{
+						labels: {
+							align: 'right',
+							x: -3
+						},
+						title: {
+							text: 'k线图'
+						},
+						height: '65%',
+						lineWidth: 2
+					}, {
+						labels: {
+							align: 'right',
+							x: -3
+						},
+						title: {
+							text: '成交量'
+						},
+						top: '70%',
+						height: '30%',
+						offset: 0,
+						lineWidth: 2
+					}],
+					series: [{
+						type: 'candlestick',
+						name: 'AAPL',
+						color: 'green',
+						lineColor: 'green',
+						upColor: 'red',
+						upLineColor: 'red',
+						tooltip: {
+						},
+						data: ohlc,
+						dataGrouping: {
+							units: groupingUnits
+						}
+					}, {
+						type: 'column',
+						name: 'Volume',
+						data: volume,
+						yAxis: 1,
+						dataGrouping: {
+							units: groupingUnits
+						}
+					}]
+				});
+			});
+		});
+</script>
+
+
+<!--echarts上证指数-->
+<div class="container">
+	<div id="chart" style="height:600px;margin:30px auto;"></div>
+
+</div>
 	<script type="text/javascript">
         // 引入 ECharts 主模块
 //        var echarts = require('echarts/lib/echarts');
@@ -291,7 +487,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         option = {
             title: {
                 text: '上证指数',
-                left: 0
+                align:'center',
             },
             tooltip: {
                 trigger: 'axis',
@@ -300,7 +496,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 }
             },
             legend: {
-                data: ['日K', 'MA5', 'MA10', 'MA20', 'MA30']
+                data: ['日K', 'MA5', 'MA10', 'MA20', 'MA30'],
             },
             grid: {
                 left: '10%',
@@ -464,198 +660,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</script>
 
 
-<!-- services -->
-	<!--<div class="services">-->
-		<!--<div class="container">-->
-			<!--<h3 class="w3_agile_head">Services</h3>-->
-			<!--<p class="augue_agile">Vivamus eget augue bibendum, molestie lacus</p>-->
+<!--===============================================================================================================-->
+ <!--services-bottom -->
+	<div class="services-bottom">
+		<div class="container">
+			<div class="col-md-7 w3_services_bottom_left">
+				<h3 style="font-size: 1.2em"><i class="fa fa-quote-left" aria-hidden="true"></i>上证指数（SSE Composite Index）全称是上海证券交易所股票价格综合指数，
+					是反映上海证券交易所挂牌股票总体走势的统计指标。它是我国股民和证券从业人员研判股票价格变化趋势必不可少的参考依据。
+				</h3>
+				<p style="font-size: 1.2em;color: #fff;line-height: 1.5em;margin-top:10px;color:#7fe6ff">本日股价指数＝本日股票市价总值÷基期股票市价总值×100</p>
+			</div>
+			<div class="col-md-5 w3_services_bottom_right">
+				<img src="images/2.jpg" alt=" " class="img-responsive" />
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+ <!--//services-bottom -->
+ <!--services-footer-top -->
 
-			<!--<div class="w3layouts_services_grids">-->
-				<!--<div class="col-md-4 w3layouts_services_grid">-->
-					<!--<div class="w3layouts_services_grid_main">-->
-						<!--<div class="w3layouts_services_grid1">-->
-							<!--<img src="images/7.jpg" alt=" " class="img-responsive" />-->
-							<!--<div class="w3layouts_services_grid1_pos">-->
-								<!--<h4>Business</h4>-->
-							<!--</div>-->
-						<!--</div>-->
-						<!--<h5>omnis iste natus error sit</h5>-->
-						<!--<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis -->
-							<!--suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur</p>-->
-					<!--</div>-->
-				<!--</div>-->
-				<!--<div class="col-md-4 w3layouts_services_grid">-->
-					<!--<div class="w3layouts_services_grid_main">-->
-						<!--<div class="w3layouts_services_grid1">-->
-							<!--<img src="images/8.jpg" alt=" " class="img-responsive" />-->
-							<!--<div class="w3layouts_services_grid1_pos">-->
-								<!--<h4>Business</h4>-->
-							<!--</div>-->
-						<!--</div>-->
-						<!--<h5>quis nostrum exercitationem</h5>-->
-						<!--<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis -->
-							<!--suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur</p>-->
-					<!--</div>-->
-				<!--</div>-->
-				<!--<div class="col-md-4 w3layouts_services_grid">-->
-					<!--<div class="w3layouts_services_grid_main">-->
-						<!--<div class="w3layouts_services_grid1">-->
-							<!--<img src="images/9.jpg" alt=" " class="img-responsive" />-->
-							<!--<div class="w3layouts_services_grid1_pos">-->
-								<!--<h4>Business</h4>-->
-							<!--</div>-->
-						<!--</div>-->
-						<!--<h5>aliquid ex ea commodi iste</h5>-->
-						<!--<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis -->
-							<!--suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur</p>-->
-					<!--</div>-->
-				<!--</div>-->
-				<!--<div class="clearfix"> </div>-->
-			<!--</div>-->
-
-			<!--<div class="w3layouts_services_grids1">-->
-				<!--<div class="col-md-4 w3layouts_services_grid">-->
-					<!--<div class="w3layouts_services_grid_main">-->
-						<!--<div class="w3layouts_services_grid1">-->
-							<!--<img src="images/10.jpg" alt=" " class="img-responsive" />-->
-							<!--<div class="w3layouts_services_grid1_pos">-->
-								<!--<h4>Business</h4>-->
-							<!--</div>-->
-						<!--</div>-->
-						<!--<h5>suscipit laboriosam nisi ut</h5>-->
-						<!--<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis -->
-							<!--suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur</p>-->
-					<!--</div>-->
-				<!--</div>-->
-				<!--<div class="col-md-4 w3layouts_services_grid">-->
-					<!--<div class="w3layouts_services_grid_main">-->
-						<!--<div class="w3layouts_services_grid1">-->
-							<!--<img src="images/11.jpg" alt=" " class="img-responsive" />-->
-							<!--<div class="w3layouts_services_grid1_pos">-->
-								<!--<h4>Business</h4>-->
-							<!--</div>-->
-						<!--</div>-->
-						<!--<h5>suscipit laboriosam ex nisi</h5>-->
-						<!--<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis -->
-							<!--suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur</p>-->
-					<!--</div>-->
-				<!--</div>-->
-				<!--<div class="col-md-4 w3layouts_services_grid">-->
-					<!--<div class="w3layouts_services_grid_main">-->
-						<!--<div class="w3layouts_services_grid1">-->
-							<!--<img src="images/12.jpg" alt=" " class="img-responsive" />-->
-							<!--<div class="w3layouts_services_grid1_pos">-->
-								<!--<h4>Business</h4>-->
-							<!--</div>-->
-						<!--</div>-->
-						<!--<h5>ex ea commodi consequa</h5>-->
-						<!--<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis -->
-							<!--suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur</p>-->
-					<!--</div>-->
-				<!--</div>-->
-				<!--<div class="clearfix"> </div>-->
-			<!--</div>-->
-		<!--</div>-->
-	<!--</div>-->
-<!-- //services -->
-<!-- services-bottom -->	
-	<!--<div class="services-bottom">-->
-		<!--<div class="container">-->
-			<!--<div class="col-md-7 w3_services_bottom_left">-->
-				<!--<h3><i class="fa fa-quote-left" aria-hidden="true"></i>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis -->
-					<!--suscipit laboriosam vel illum qui dolorem eum fugiat quo</h3>-->
-			<!--</div>-->
-			<!--<div class="col-md-5 w3_services_bottom_right">-->
-				<!--<img src="images/2.jpg" alt=" " class="img-responsive" />-->
-			<!--</div>-->
-			<!--<div class="clearfix"> </div>-->
-		<!--</div>-->
-	<!--</div>-->
-<!-- //services-bottom -->
-<!-- services-footer-top -->
-	<!--<div class="services-footer-top">-->
-		<!--<div class="container">-->
-			<!--<div class="col-md-4 w3l_services_footer_top_left">-->
-				<!--<img src="images/14.jpg" alt=" " class="img-responsive" />-->
-			<!--</div>-->
-			<!--<div class="col-md-8 w3l_services_footer_top_right">-->
-				<!--<div class="w3l_services_footer_top_right_main">-->
-					<!--<div class="w3l_services_footer_top_right_main_l">-->
-						<!--<h3>20 September 2016</h3>-->
-					<!--</div>-->
-					<!--<div class="w3l_services_footer_top_right_main_l1">	-->
-						<!--<div class="w3ls_service_icon">-->
-							<!--<i class="fa fa-globe" aria-hidden="true"></i>-->
-						<!--</div>-->
-					<!--</div>-->
-					<!--<div class="w3l_services_footer_top_right_main_r">-->
-						<!--<a href="#" data-toggle="modal" data-target="#myModal">Ut maximus pretium odio eget</a>-->
-						<!--<p>Morbi sollicitudin odio massa, et rutrum sem rutrum in. -->
-							<!--Duis elementum turpis ultricies, finibus leo.</p>-->
-					<!--</div>-->
-					<!--<div class="clearfix"> </div>-->
-				<!--</div>-->
-				<!--<div class="w3l_services_footer_top_right_main">-->
-					<!--<div class="w3l_services_footer_top_right_main_l">-->
-						<!--<h3>25 September 2016</h3>-->
-					<!--</div>-->
-					<!--<div class="w3l_services_footer_top_right_main_l1">	-->
-						<!--<div class="w3ls_service_icon">-->
-							<!--<i class="fa fa-map" aria-hidden="true"></i>-->
-						<!--</div>-->
-					<!--</div>-->
-					<!--<div class="w3l_services_footer_top_right_main_r">-->
-						<!--<a href="#" data-toggle="modal" data-target="#myModal">Aliquam faucibus turpis</a>-->
-						<!--<p>Morbi sollicitudin odio massa, et rutrum sem rutrum in. -->
-							<!--Duis elementum turpis ultricies, finibus leo.</p>-->
-					<!--</div>-->
-					<!--<div class="clearfix"> </div>-->
-				<!--</div>-->
-				<!--<div class="w3l_services_footer_top_right_main">-->
-					<!--<div class="w3l_services_footer_top_right_main_l">-->
-						<!--<h3>30 September 2016</h3>-->
-					<!--</div>-->
-					<!--<div class="w3l_services_footer_top_right_main_l1">	-->
-						<!--<div class="w3ls_service_icon">-->
-							<!--<i class="fa fa-pie-chart" aria-hidden="true"></i>-->
-						<!--</div>-->
-					<!--</div>-->
-					<!--<div class="w3l_services_footer_top_right_main_r">-->
-						<!--<a href="#" data-toggle="modal" data-target="#myModal">Mauris vitae faucibus volut</a>-->
-						<!--<p>Morbi sollicitudin odio massa, et rutrum sem rutrum in. -->
-							<!--Duis elementum turpis ultricies, finibus leo.</p>-->
-					<!--</div>-->
-					<!--<div class="clearfix"> </div>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class="clearfix"> </div>-->
-			<!--&lt;!&ndash; modal-text &ndash;&gt;-->
-				<!--<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">-->
-					<!--<div class="modal-dialog" role="document">-->
-						<!--<div class="modal-content">-->
-							<!--<div class="modal-header">-->
-								<!--Monetary-->
-								<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						-->
-							<!--</div>-->
-							<!--<section>-->
-								<!--<div class="modal-body">-->
-									<!--<img src="images/6.jpg" alt=" " class="img-responsive" />-->
-									<!--<p>Ut enim ad minima veniam, quis nostrum -->
-										<!--exercitationem ullam corporis suscipit laboriosam, -->
-										<!--nisi ut aliquid ex ea commodi consequatur? Quis autem -->
-										<!--vel eum iure reprehenderit qui in ea voluptate velit -->
-										<!--esse quam nihil molestiae consequatur, vel illum qui -->
-										<!--dolorem eum fugiat quo voluptas nulla pariatur.-->
-										<!--<i>" Quis autem vel eum iure reprehenderit qui in ea voluptate velit -->
-											<!--esse quam nihil molestiae consequatur.</i></p>-->
-								<!--</div>-->
-							<!--</section>-->
-						<!--</div>-->
-					<!--</div>-->
-				<!--</div>-->
-			<!--&lt;!&ndash; //modal-text &ndash;&gt;-->
-		<!--</div>-->
-	<!--</div>-->
 <!-- //services-footer-top -->
 <!-- footer -->
 	<div class="footer">
@@ -670,9 +693,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="agileits_w3layouts_nav_left">
 					<ul>
 						<li><a href="index.html">Home</a></li>
-						<li class="active"><a href="services.html">Services</a></li>
-						<li><a href="portfolio.html">Portfolio</a></li>
-						<li><a href="contact.html">Mail Us</a></li>
+						<li class="active"><a href="stocks.html">Stocks</a></li>
+						<li><a href="news.html">Portfolio</a></li>
+						<li><a href="contact.html">Contact Us</a></li>
 					</ul>
 				</div>
 				<div class="agileits_w3layouts_nav_right">
